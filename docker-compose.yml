@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: projectos-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME:-projectos}
+      POSTGRES_USER: ${DB_USERNAME:-projectos}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-projectos}
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - projectos-postgres-data:/var/lib/postgresql/data
+
+volumes:
+  projectos-postgres-data:
