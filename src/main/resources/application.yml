@@ -22,6 +22,13 @@ spring:
     locations: classpath:db/migration
     baseline-on-migrate: false
 
+  mvc:
+    throw-exception-if-no-handler-found: true
+
+  web:
+    resources:
+      add-mappings: false
+
 server:
   port: ${SERVER_PORT:8080}
 
@@ -30,3 +37,6 @@ springdoc:
     path: /swagger-ui.html
   api-docs:
     path: /v3/api-docs
+
+projectos:
+  version: 0.1.0-SNAPSHOT
